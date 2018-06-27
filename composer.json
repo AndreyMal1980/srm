@@ -1,0 +1,14 @@
+{
+    "require": {
+        "klein/klein": "2.*",
+        "propel/propel": "~2.0@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        },
+        "psr-4": {
+            "app\\": "src/"
+        }
+    }
+}

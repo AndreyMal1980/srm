@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="premises" idMethod="native" phpName="Premises">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="date_sender" phpName="DateSender" type="BIGINT" sqlType="bigint(20) unsigned" required="true"/>
+    <column name="date_recipient" phpName="DateRecipient" type="INTEGER" required="true"/>
+    <column name="type_id" phpName="TypeId" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true"/>
+    <column name="count" phpName="Count" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" required="true"/>
+    <column name="route_id" phpName="RouteId" type="BIGINT" required="true"/>
+    <column name="cost" phpName="Cost" type="INTEGER" size="10" sqlType="int(10) unsigned" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="routes" idMethod="native" phpName="Routes">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="statuses" idMethod="native" phpName="Statuses">
+    <column name="id" phpName="Id" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="trust_users" idMethod="native" phpName="TrustUsers">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstname" phpName="Firstname" type="VARCHAR" size="255" required="true"/>
+    <column name="lastname" phpName="Lastname" type="VARCHAR" size="255" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="types_premise" idMethod="native" phpName="TypesPremise">
+    <column name="id" phpName="Id" type="TINYINT" size="3" sqlType="tinyint(3) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="user_to_premises" idMethod="native" phpName="UserToPremises">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="user_id_sender" phpName="UserIdSender" type="BIGINT" sqlType="bigint(20) unsigned" required="true"/>
+    <column name="premise_id" phpName="PremiseId" type="BIGINT" sqlType="bigint(20) unsigned" required="true"/>
+    <column name="user_recipient" phpName="UserRecipient" type="BIGINT" sqlType="bigint(20) unsigned" required="true"/>
+    <column name="trust_user_id" phpName="TrustUserId" type="BIGINT"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="users_recipient" idMethod="native" phpName="UsersRecipient">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstname" phpName="Firstname" type="VARCHAR" size="255" required="true"/>
+    <column name="lastname" phpName="Lastname" type="VARCHAR" size="255" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="255" required="true"/>
+    <column name="place_of_sale" phpName="PlaceOfSale" type="VARCHAR" size="255" required="true"/>
+    <column name="description" phpName="Description" type="LONGVARCHAR" required="true"/>
+    <column name="region" phpName="Region" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="users_sender" idMethod="native" phpName="UsersSender">
+    <column name="id" phpName="Id" type="BIGINT" sqlType="bigint(20) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="phone" phpName="Phone" type="VARCHAR" size="255" required="true"/>
+    <column name="lastname" phpName="Lastname" type="VARCHAR" size="255" required="true"/>
+    <column name="firstname" phpName="Firstname" type="VARCHAR" size="255" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
